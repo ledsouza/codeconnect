@@ -21,35 +21,58 @@ ItemCardRodape.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-export default function Card() {
+export default function Card({
+    id,
+    imagemUrl,
+    titulo,
+    resumo,
+    linhasDeCodigo,
+    compartilhamentos,
+    comentarios,
+    usuario,
+}) {
     return (
-        <article className="card">
+        <article className="card" id={id}>
             <div className="card__imagem">
-                <img src={Capa} alt="Imagem do post" />
+                <img src={imagemUrl} alt="Imagem do post" />
             </div>
             <div className="card__conteudo">
                 <div className="conteudo__texto">
-                    <h3>Título do post</h3>
-                    <p>Resumo do post</p>
+                    <h3>{titulo}</h3>
+                    <p>{resumo}</p>
                 </div>
             </div>
             <div className="conteudo__rodape">
                 <ul>
                     <ItemCardRodape icone={Code} alt="códigos">
-                        12
+                        {linhasDeCodigo}
                     </ItemCardRodape>
                     <ItemCardRodape icone={Share} alt="compartilhamentos">
-                        12
+                        {compartilhamentos}
                     </ItemCardRodape>
                     <ItemCardRodape icone={Chat} alt="comentários">
-                        12
+                        {comentarios}
                     </ItemCardRodape>
                 </ul>
                 <div className="rodape__usuario">
-                    <img src={Profile} alt="imagem do usuário" />
-                    @ledsouza
+                    <img src={usuario.imagem} alt="imagem do usuário" />
+                    {usuario.nome}
                 </div>
             </div>
         </article>
     );
 }
+
+Card.propTypes = {
+    id: PropTypes.number.isRequired,
+    imagemUrl: PropTypes.string.isRequired,
+    titulo: PropTypes.string.isRequired,
+    resumo: PropTypes.string.isRequired,
+    linhasDeCodigo: PropTypes.number.isRequired,
+    compartilhamentos: PropTypes.number.isRequired,
+    comentarios: PropTypes.number.isRequired,
+    usuario: PropTypes.shape({
+        imagem: PropTypes.string.isRequired,
+        nome: PropTypes.string.isRequired,
+    }).isRequired,
+};
