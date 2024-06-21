@@ -8,3 +8,9 @@
 .container div {
     flex-grow: 2;
 }
+
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
