@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
-import Capa from "./assets/capa.png";
 import Chat from "./assets/chat.svg";
 import Code from "./assets/code.svg";
-import Profile from "./assets/profile.png";
 import Share from "./assets/share.svg";
 import "./styles.css";
 
